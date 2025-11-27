@@ -2,8 +2,11 @@ package com.vuongtq.springdemo.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -21,4 +24,12 @@ public class UserEntity {
 
     @Column(columnDefinition = "varchar(255) comment 'user name'", nullable = false, unique = true)
     private String userEmail;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private List<FeedEntity> feedList;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cccd_id")
+    private CCCDEntity cccd;
 }
