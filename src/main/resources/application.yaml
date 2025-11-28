@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: spring-demo
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
   datasource:
     url: jdbc:mysql://localhost:3306/springdemo
     username: root
@@ -20,3 +20,6 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+logging:
+  level:
+    org.springframework.security: DEBUG
