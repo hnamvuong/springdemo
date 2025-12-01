@@ -20,6 +20,13 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+#  security:
+#    user:
+#      name: root
+#      password: root
+#      roles:
+#        - admin
+#        - user
 logging:
   level:
     org.springframework.security: DEBUG
